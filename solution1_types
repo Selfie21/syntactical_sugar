@@ -1,0 +1,24 @@
+fun1 :: Eq a => [a] -> Bool
+fun2 :: Foldable t => (a -> [Char] -> [Char]) -> p -> t a -> [Char]
+fun3 :: Foldable t1 => ((t2 -> t3) -> a -> t2 -> t3) -> (t2 -> t3) -> t1 a -> t2 -> t3
+fun4 //
+fun5 :: (Ord a, Enum a, Num b) => a -> a -> b -> (a, b)
+fun6 :: (Enum a1, Enum a2, Enum a3) => a2 -> a3 -> a1
+fun7 :: Show ([Char] -> a) => ([Char] -> a) -> [Char] -> a
+
+
+Erklärung:
+fun1: a muss vergleichbar sein (Eq a) und auf Boolean abbilden
+fun2: t muss Foldable sein (da foldable operator) und alle Funktionen müssen auf
+      [Char] abbilden, da "a" Initialwert
+fun3: t muss Foldable sein (da foldable operator) und xs und c müssen vom Typ
+      t2, t3 sein da ja die Operation von Foldl darauf abbildet
+fun4: nicht typisierbar da bei map f xs -> [x] rauskommt und fun4 = [x] [x]
+      nicht typisierbar
+fun5: in fun5 a b c können a b vom gleichen Typ sein da beide nur im Max.
+      gebraucht werden. Sie müssen von Ord sein, da vergleichbar und Enum damit
+      anwendbar in max. Num b offensichtlich da * 3
+fun6: alle Parameter sowie Output müssen vom Typ Enum sein, da Enum Operationen
+      angewendet werden
+fun7: x muss offensichtlich vom Typ Show sein (da show x).x muss demnach vom Typ
+      [Char] -> a sein, sowie die Ausgabe
