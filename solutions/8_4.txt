@@ -1,0 +1,17 @@
+1. Das Programm nimmt die größte negative Zahl (0 falls keine vorhanden) aus einem Array von Ints und subtrahiert diese von jedem Element.
+	 Diese Arbeit wird aufgeteilt auf n Threads, die jeweils das subtrahieren von dem zugewiesenen Bereich vornehmen.
+	 Ausgabe: -2, 1, 8, 4
+	 
+2. MPI_Bcast(&offset, 1, MPI_INT, 0, MPI_COMM_WORLD);
+
+3. Man dieses checken auch aufteilen auf die einzelnen Threads, sodass jeder Thread einen Teil des Arrays checkt. Jedes Locale Minimum wird dann an den root Thread geschickt  und dann wird daraus das Minimum von allen Offsets ausgewählt.
+
+Code:
+
+int offset = 0
+int tmpOffset = 0;
+for (int i = 0; i < elementsPerProcess; i++) {
+	if(local[i] < tmpOffset) tmpOffset < local[i];
+}
+
+MPI_Reduce(&tmpOffset, &offset, 1 MPI_INT, MPI_MIN, rootRank, MPI_COMM_WORLD);

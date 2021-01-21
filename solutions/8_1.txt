@@ -1,0 +1,10 @@
+1. Daten-Parallelismus, da eine Operation (das berechnen der Faltungsmatrizen) mehrmals auf verschiedene Pixel (Zellen der Matrix) angewandt wird.
+   Parallelisierung möglich durch ausführen des Berechnen des Farbgradienten für jeden Pixel auf mehreren Threads.
+   
+2. Daten-Parallelismus, da man eine Operation (das numerische Berechnen des Integrals) mehrmals auf verschieden Teilabschnitte anwendet.
+	 Parallelisierung möglich durch aufteilen von [a,b] in n Teilstücke. Auf diesen n Teilstücken wird das Integral dann interpoliert, was unabhängig voneinander berechnet
+	 werden kann.
+
+3. Task-Parallelismus, da die Aufgaben die bearbeitet werden müssen weitgehend unterschiedlich sind und nicht immer auf denselben Speicher zugreifen.
+   Man könnte die Anfragen an den Webserven verschiedene Threads verwenden. D.h. wenn 2 Requests kommen kann der Main Thread diese an 2 verschiedene Child Threads  	
+   weiterleiten, die diese bearbeiten. Nach Bearbeiten der Anfragen wird das Ergebnis an den Main Thread weitergeleitet der diese an den Client schicken kann.

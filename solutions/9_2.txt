@@ -1,0 +1,7 @@
+1.
+Es fehlt eine Happens-Before Beziehung zwischen den Threads zur Variable ping. 
+Dadurch kann es sein das bspw. der pongThread ping = false setzt danach wird die Instruktion ping = true im pingThread ausgeführt.
+Bei erneutem Durchlaufen der Schleife wird der PingThread endlos in der while-Schleife feststecken da der Pong thread nie dazu kommt ping=false zu setzen.
+
+2.
+Durch setzen der public static volatile boolean ping = false; wird für die Variable eine Happens-Before Beziehung eingeführt die über die Threads verläuft.

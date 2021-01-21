@@ -1,0 +1,47 @@
+1.
+
+sendbuffer 0: 0 2 4 6
+sendbuffer 1: 1 3 5 7
+sendbuffer 2: 2 4 6 8
+sendbuffer 3: 3 5 7 9
+recvbuffer 0: 6 14 22 30
+
+2.
+
+
+void my_int_sum_reduce(int *sendbuf, int* recvbuf, int count, int root, MPI_Comm comm){
+	int rank;
+	int processCount;
+	
+	
+	rank = MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	processCount = MPI_Comm_size(MPI_COMM_WORLD, &processCount);
+	
+	int tmpArray[processCount][count];
+	
+	if(rank != root){
+			MPI_Send(sendbuf, count, MPI_INT, root, 0, MPI_COMM_WORLD);
+	}
+
+	
+	if(rank == root){
+		for (int process = 0; process < processCount; process++){
+			if(process != root){
+				MPI_Recv(tmpArray[process], 1 MPI_INT, process, 0, MPI_COMM_WORLD);
+			}
+		
+		//Adding numbers from Root Process
+		for(int i = 0; i < count; i++){
+			recvbuf[i] = sendbuf[i];
+		}
+		
+		//Adding all numbers from Processes
+		for(int i = 0; i < processCount; i++){
+			recvbuf[i] += sendbuf[i];
+		}
+		
+	}
+
+}
+}
+

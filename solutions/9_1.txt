@@ -1,0 +1,8 @@
+Nach dem Amdalschen gesetz ist der maximale Speedup: 
+
+S(n) = 1/((1-p)+(p/n))
+
+p = Anteil parallelisierbar / Anteil Gesame = (2*0,9)/((2*0,9)+(3*0,1)) ~ 0,85714285714285
+
+Damit ist der Speedup:
+S(4) = 1/((1-0,85714285714285)+(0,85714285714285/4)) = 2,8
