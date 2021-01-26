@@ -1,0 +1,6 @@
+1. Das Liskov'sche Substitutionsprinzip wird nicht mehr eingehalten.
+   Bei Square ist die Nachbedingung weniger restriktiv wie die Nachbedingung in Rectangle.
+   Das heißt also Nachbedingungen der Subklasse sind weniger restriktiv wie die der Superklasse -> verletzt.
+
+2. Die einfachste Lösung wäre das man Square und Rectangle trennt und sie nicht voneinander erben lässt sonder seperat behandelt.
+   Dann kann man einfach die Verträge so lassen da dann das Prinzip nicht verletzt wird.

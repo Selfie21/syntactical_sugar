@@ -1,0 +1,32 @@
+1. snd = λp.p (λa.λb.b)
+
+2. 
+λp.p(λa.λb.a)((λa.λb.λf.f a b) a b)
+((λa.λb.λf.f a b) a b) (λa.λb.a)
+((λb.λf.f a b) b) (λa.λb.a)
+(λf.f a b) (λa.λb.a)
+((λa.λb.a) a b) 
+(λb.a) b
+a
+
+3.
+snd = (λp.p (λa.λb.b))
+pair = (λa.λb.λf.f a b) damit folgt:
+λi.(λa.λb.λf.f a b) ((λp.p (λa.λb.b))(i)) ((λn.λs.λz.s(n s z)) ((λp.p (λa.λb.b))(i)))
+
+// input pair. Pair (snd inputpair) (successor snd inputpair)
+
+
+4.
+λi.(λa.λb.λf.f a b) ((λp.p (λa.λb.b))(i)) ((λn.λs.λz.s(n s z)) ((λp.p (λa.λb.b))(i))) ((λa.λb.λf.f a b) n m)
+(λa.λb.λf.f a b) ((λp.p (λa.λb.b))(((λa.λb.λf.f a b) a b))) ((λn.λs.λz.s(n s z)) ((λp.p (λa.λb.b))(((λa.λb.λf.f a b) a b)))) 
+Es wird immer snd inputpair berechnet daraus folgt mit betareduktion (ersetzung weitgehend äquivalent zu 2.):
+(λa.λb.λf.f a b) (m) ((λn.λs.λz.s(n s z)) m) 
+--> Pair (m, succ m)
+
+5.
+pred cN = snd ( next^N( (Pair c0 c0) ) )
+
+
+
+

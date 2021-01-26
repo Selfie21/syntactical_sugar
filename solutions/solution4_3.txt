@@ -1,0 +1,11 @@
+t1 = (λt.λf.f) ((λy.(λx.x x) (λx.x x)) ((λx.x) (λx.x))) (λt.λf.f)
+     ‾‾‾‾‾‾‾‾‾ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~			Normalenreihenfolge & Call-By-Name
+
+t1 = (λt.λf.f) ((λy.(λx.x x) (λx.x x)) ((λx.x) (λx.x))) (λt.λf.f)
+                                        ‾‾‾‾‾‾ ~~~~~~			Call-By-Value
+
+
+t2 = λy.(λz.(λx.x) (λx.x)z)y
+            ‾‾‾‾‾‾ ~~~~~~	Normalenreihenfolge
+
+Call-By-Value & Call-By-Name schon fertig da Redexe von Lambdas umgeben sind

@@ -1,0 +1,35 @@
+(1)
+
+1)
+
+1. (((c0 c1) ((c2 c3) c4)) c5)
+2. (((c0 c1) c2) ((c3 c4) c5))
+3. (((c0 c1) ((c2 c3) c4)) (c5 c6))
+4. ((((c0 c1) ((c2 c3) c4)) c5) c6)
+5. (((c0 (c1 ((c2 c3) c4))) c5) c6)
+6. (λy. ((c0 c1) c2)) ((c3 c4) c5)
+7. (λy. (c0 (λz. (c1 c2))) ((c3 c4) c5)
+
+2)
+der zweite
+
+3)
+1. ((x) c0) [x -> λy.y] = ((λy.y) c0) = c0
+2. (x c0) [x -> (λy.y)] = ((λy.y) c0) = c0
+3. (x c0) [x -> λy.y] 	= (λy.y c0)
+nein die Aussage gilt nicht.
+
+4)
+Es gilt: 1. und 4., die anderen nicht wegen linksassoziativität
+
+5)
+(λa.a) (λb.b) ((λc.c) ((λd.d) (λe.e) (λf.f))) (λg.g) ((λh.h) (λi.i))
+‾‾‾‾‾‾ ‾‾‾‾‾‾  ‾‾‾‾‾‾  ‾‾‾‾‾‾ ‾‾‾‾‾‾          ‾‾‾‾‾‾  ‾‾‾‾‾‾
+
+(λb.b) ((λc.c) ((λd.d) (λe.e) (λf.f))) (λg.g) ((λh.h) (λi.i)) -- a
+(λa.a) ((λc.c) ((λd.d) (λe.e) (λf.f))) (λg.g) ((λh.h) (λi.i)) -- b
+(λa.a) (λb.b) ((λd.d) (λe.e) (λf.f)) (λg.g) ((λh.h) (λi.i))   -- c
+(λa.a) (λb.b) ((λc.c) ((λe.e) (λf.f))) (λg.g) ((λh.h) (λi.i)) -- d
+(λa.a) (λb.b) ((λc.c) ((λd.d) (λf.f))) (λg.g) ((λh.h) (λi.i)) -- e
+(λa.a) (λb.b) ((λc.c) ((λd.d) (λf.f))) ((λh.h) (λi.i))        -- g
+(λa.a) (λb.b) ((λc.c) ((λd.d) (λe.e) (λf.f))) (λg.g) (λi.i)   -- h

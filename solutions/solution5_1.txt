@@ -1,0 +1,6 @@
+Eq = λa.λb.(isZero (sub a b)) ((isZero (sub b a)) cTrue cFalse) cFalse
+
+helpfib = λfib.λn. (Eq n c0) c1 [(Eq n c1) c1 [(fib (sub n c1)) add (fib (sub n c2))]]
+fib = Y helpfib
+
+Y ist Rekursionsoperator
